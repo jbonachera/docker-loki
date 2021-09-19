@@ -1,0 +1,10 @@
+[PARSER]
+    Name iptables
+    Format regex
+    Regex \[.*\] IN=(?<in_interface>[\w.]+)? OUT=(?<out_interface>[\w.]+)? MAC=(?<mac_address>[\w:]+)? SRC=(?<source>[^ ]+) DST=(?<dest>[^ ]+) LEN=(?<pkt_len>\d+) TOS=(?<pkt_tos>[\w\d]+) PREC=(?<pkt_prec>[\w\d]+) TTL=(?<pkt_ttl>\d+) ID=(?<pkt_id>\d+)\s?(?<pkg_frg>[A-Z\s].?)\s?PROTO=(?<protocol>[\w\d]+) (SPT=(?<source_port>\d*) DPT=(?<dest_port>\d*) (LEN=(?<proto_pkt_len>\w+)?)?(WINDOW=(?<proto_window_size>\d+) RES=(?<pkt_res>\w+)? (?<pkt_type>\w+)\s((?<pkt_flag>\w+)?)\s?URGP=(?<pkg_urgency>\d))?)?(TYPE=(?<pkt_icmp_type>\d+) CODE=(?<pkt_icmp_code>\d+) ID=(?<pkt_icmp_id>\d+) SEQ=(?<pkt_icmp_seq>\d+))? $
+    Types source_port:integer,dest_port:integer,pkt_ttl:integer,pkt_tos:integer,pkt_len:integer
+
+[PARSER]
+    Name        syslog-rfc3164-unifi
+    Format      regex
+    Regex       /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/

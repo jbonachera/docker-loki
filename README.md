@@ -1,3 +1,3 @@
 # docker-loki
 
-Simple rsyslog + promtail + loki + grafana receiver
+Simple fluent-bit + loki + grafana iptables parser
