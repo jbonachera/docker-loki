@@ -1,3 +1,3 @@
 # docker-loki
 
-Simple fluent-bit + loki + grafana iptables parser
+Simple all-in-one vector + loki + grafana container
